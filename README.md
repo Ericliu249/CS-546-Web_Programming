@@ -1,7 +1,26 @@
-# CS_546 Web Programming Project: [🗽](https://github.com/Ericliu249/CS-546-Web_Programming "Vacation Buddy github")
+# angular5-metronic
+metronic theme angular 7 startup
 
-# Description
+clone and install Node.js from https://nodejs.org/en/download/
 
-# Getting started
+1) Install the latest version of npm. 
+  npm install --global npm@latest
+  
+2) nstall the latest version of yarn. 
+  npm install --global yarn
 
-# License
+3) Install gulp. 
+  npm install --global gulp-cli
+  
+  Change Directory to app
+  
+4) Install node modules
+    npm install
+    
+5) Install yarn dependencies.
+  yarn install 
+  
+6) Run Application 
+   ng serve or npm start
+
+
