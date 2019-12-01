@@ -1,4 +1,4 @@
-# angular5-metronic
+# Buddy Vacation
 metronic theme angular 7 startup
 
 clone and install Node.js from https://nodejs.org/en/download/
