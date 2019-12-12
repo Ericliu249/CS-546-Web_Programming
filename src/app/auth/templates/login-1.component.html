@@ -1,6 +1,8 @@
-<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--signin" id="m_login">
+<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--signin"
+	id="m_login">
 	<div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
 		<div class="m-stack m-stack--hor m-stack--desktop">
+			<div>The login form and signup form!</div>
 			<div class="m-stack__item m-stack__item--fluid">
 				<div class="m-login__wrapper">
 					<div class="m-login__logo">
@@ -11,9 +13,10 @@
 					<div class="m-login__signin">
 						<div class="m-login__head">
 							<h3 class="m-login__title">
-								Sign In To Admin
+								Sign IN Form
 							</h3>
-							<div class="m--margin-top-40 m-alert m-alert--outline m-alert--outline-2x alert alert-success fade show" role="alert">
+							<div class="m--margin-top-40 m-alert m-alert--outline m-alert--outline-2x alert alert-success fade show"
+								role="alert">
 								Use username
 								<span style="font-weight: 500;">
 									demo@demo.com
@@ -28,12 +31,15 @@
 						<form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
 							<ng-template #alertSignin></ng-template>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" autocomplete="off">
+								<input class="form-control m-input" type="text" placeholder="Email" name="email"
+									[(ngModel)]="model.email" #email="ngModel" autocomplete="off">
 							</div>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel">
+								<input class="form-control m-input m-login__form-input--last" type="password"
+									placeholder="Password" name="password" [(ngModel)]="model.password"
+									#password="ngModel">
 							</div>
-							<div class="row m-login__form-sub">
+							<!-- <div class="row m-login__form-sub">
 								<div class="col m--align-left">
 									<label class="m-checkbox m-checkbox--focus">
 										<input type="checkbox" name="remember" [(ngModel)]="model.remember" #remember="ngModel">
@@ -46,9 +52,12 @@
 										Forget Password ?
 									</a>
 								</div>
-							</div>
+							</div> -->
 							<div class="m-login__form-action">
-								<button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+								<button [disabled]="loading"
+									[ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
+									id="m_login_signin_submit"
+									class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
 									Sign In
 								</button>
 							</div>
@@ -57,74 +66,125 @@
 					<div class="m-login__signup">
 						<div class="m-login__head">
 							<h3 class="m-login__title">
-								Sign Up
+								Sign Up Form
 							</h3>
 							<div class="m-login__desc">
 								Enter your details to create your account:
 							</div>
 						</div>
+						<!--						<form (ngSubmit)="f.form.valid && signup()" #f="ngForm" class="m-login__form m-form" action="">-->
+						<!--							<ng-template #alertSignup></ng-template>-->
+						<!--							<div class="form-group m-form__group">-->
+						<!--								<input class="form-control m-input" type="text" placeholder="Fullname" name="fullname" [(ngModel)]="model.fullname" #fullname="ngModel">-->
+						<!--							</div>-->
+						<!--							<div class="form-group m-form__group">-->
+						<!--								<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" autocomplete="off">-->
+						<!--							</div>-->
+						<!--							<div class="form-group m-form__group">-->
+						<!--								<input class="form-control m-input" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel">-->
+						<!--							</div>-->
+						<!--							<div class="form-group m-form__group">-->
+						<!--								<input class="form-control m-input m-login__form-input&#45;&#45;last" type="password" placeholder="Confirm Password" name="rpassword" [(ngModel)]="model.rpassword" #rpassword="ngModel">-->
+						<!--							</div>-->
+						<!--							<div class="row form-group m-form__group m-login__form-sub">-->
+						<!--								<div class="col m&#45;&#45;align-left">-->
+						<!--									<label class="m-checkbox m-checkbox&#45;&#45;focus">-->
+						<!--										<input type="checkbox" name="agree" [(ngModel)]="model.agree" #agree="ngModel">-->
+						<!--										I Agree the-->
+						<!--										<a href="#" class="m-link m-link&#45;&#45;focus">-->
+						<!--											terms and conditions-->
+						<!--										</a>-->
+						<!--										.-->
+						<!--										<span></span>-->
+						<!--									</label>-->
+						<!--									<span class="m-form__help"></span>-->
+						<!--								</div>-->
+						<!--							</div>-->
+						<!--							<div class="m-login__form-action">-->
+						<!--								<button [disabled]="loading" [ngClass]="{'m-loader m-loader&#45;&#45;right m-loader&#45;&#45;light': loading}" id="m_login_signup_submit" class="btn btn-focus m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom m-btn&#45;&#45;air">-->
+						<!--									Sign Up-->
+						<!--								</button>-->
+						<!--								<button [disabled]="loading"  id="m_login_signup_cancel" class="btn btn-outline-focus  m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom">-->
+						<!--									Cancel-->
+						<!--								</button>-->
+						<!--							</div>-->
+						<!--						</form>-->
 						<form (ngSubmit)="f.form.valid && signup()" #f="ngForm" class="m-login__form m-form" action="">
+							<!--                            action="/signup" method="post" id="signup-form"-->
 							<ng-template #alertSignup></ng-template>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input" type="text" placeholder="Fullname" name="fullname" [(ngModel)]="model.fullname" #fullname="ngModel">
+								<label for="firstname">FirstName:</label>
+								<input class="form-control m-input" id="firstname" type="text" name="FirstName"
+									placeholder="firstname here">
 							</div>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" autocomplete="off">
+								<label for="lastname">LastName:</label>
+								<input class="form-control m-input" id="lastname" type="text" name="LastName"
+									placeholder="lastname here">
 							</div>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel">
+								<label for="email">Email:</label>
+								<input class="form-control m-input" id="email" type="email" name="Email"
+									placeholder="email here">
 							</div>
 							<div class="form-group m-form__group">
-								<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="rpassword" [(ngModel)]="model.rpassword" #rpassword="ngModel">
+								<label for="username">UserName:</label>
+								<input class="form-control m-input" id="username" type="text" name="UserName"
+									placeholder="input your username">
 							</div>
-							<div class="row form-group m-form__group m-login__form-sub">
-								<div class="col m--align-left">
-									<label class="m-checkbox m-checkbox--focus">
-										<input type="checkbox" name="agree" [(ngModel)]="model.agree" #agree="ngModel">
-										I Agree the
-										<a href="#" class="m-link m-link--focus">
-											terms and conditions
-										</a>
-										.
-										<span></span>
-									</label>
-									<span class="m-form__help"></span>
-								</div>
+							<div class="form-group m-form__group">
+								<label for="password">Password:</label>
+								<input class="form-control m-input" id="password" type="password" name="Password"
+									placeholder="password here">
 							</div>
+							<div class="form-group m-form__group">
+								<label>Confirm Password:
+									<input class="form-control m-input" id="cpassword" type="password"
+										name="ConfirmPassword" placeholder="confirm password here">
+								</label>
+							</div>
+
 							<div class="m-login__form-action">
-								<button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-									Sign Up
+								<label for="m_login_signup_submit"></label>
+								<button [disabled]="loading"
+									[ngClass]="{'m-loader m-loader--right m-loader--light': loading}"
+									id="m_login_signup_submit"
+									class="btn btn-focus m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom m-btn&#45;&#45;air">
+									sign up
 								</button>
-								<button [disabled]="loading"  id="m_login_signup_cancel" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">
-									Cancel
+								<label for="m_login_signup_cancel"></label>
+								<button [disabled]="loading" id="m_login_signup_cancel"
+									class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">
+									back login
 								</button>
 							</div>
+
 						</form>
 					</div>
-					<div class="m-login__forget-password">
-						<div class="m-login__head">
-							<h3 class="m-login__title">
-								Forgotten Password ?
-							</h3>
-							<div class="m-login__desc">
-								Enter your email to reset your password:
-							</div>
-						</div>
-						<form (ngSubmit)="f.form.valid && forgotPass()" #f="ngForm" class="m-login__form m-form" action="">
-							<ng-template #alertForgotPass></ng-template>
-							<div class="form-group m-form__group">
-								<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" id="m_email" autocomplete="off">
-							</div>
-							<div class="m-login__form-action">
-								<button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
-									Request
-								</button>
-								<button [disabled]="loading"  id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
-									Cancel
-								</button>
-							</div>
-						</form>
-					</div>
+					<!--					<div class="m-login__forget-password">-->
+					<!--						<div class="m-login__head">-->
+					<!--							<h3 class="m-login__title">-->
+					<!--								Forgotten Password ?-->
+					<!--							</h3>-->
+					<!--							<div class="m-login__desc">-->
+					<!--								Enter your email to reset your password:-->
+					<!--							</div>-->
+					<!--						</div>-->
+					<!--						<form (ngSubmit)="f.form.valid && forgotPass()" #f="ngForm" class="m-login__form m-form" action="">-->
+					<!--							<ng-template #alertForgotPass></ng-template>-->
+					<!--							<div class="form-group m-form__group">-->
+					<!--								<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" id="m_email" autocomplete="off">-->
+					<!--							</div>-->
+					<!--							<div class="m-login__form-action">-->
+					<!--								<button [disabled]="loading" [ngClass]="{'m-loader m-loader&#45;&#45;right m-loader&#45;&#45;light': loading}" id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom m-btn&#45;&#45;air">-->
+					<!--									Request-->
+					<!--								</button>-->
+					<!--								<button [disabled]="loading"  id="m_login_forget_password_cancel" class="btn btn-outline-focus m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom">-->
+					<!--									Cancel-->
+					<!--								</button>-->
+					<!--							</div>-->
+					<!--						</form>-->
+					<!--					</div>-->
 				</div>
 			</div>
 			<div class="m-stack__item m-stack__item--center">
@@ -132,23 +192,30 @@
 					<span class="m-login__account-msg">
 						Don't have an account yet ?
 					</span>
-					&nbsp;&nbsp;
-					<a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
+					<!--					&nbsp;&nbsp;-->
+					<!-- <a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
 						Sign Up
-					</a>
+					</a> -->
+					<button href="javascript:;" id="m_login_signup"
+						class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+						Sign Up
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url(./assets/app/media/img//bg/bg-4.jpg)">
+
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content"
+		style="background-image: url(./assets/app/media/img//bg/bg-4.jpg)">
 		<div class="m-grid__item m-grid__item--middle">
 			<h3 class="m-login__welcome">
-				Join Our Community
+				Vocation Buddy
 			</h3>
 			<p class="m-login__msg">
-				Lorem ipsum dolor sit amet, coectetuer adipiscing
-				<br>
-				elit sed diam nonummy et nibh euismod
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt hic quisquam sit eveniet quos eum
+				voluptates, corporis veniam quidem libero vel expedita ratione id provident culpa fuga amet, optio natus
+				commodi earum deserunt ad minima voluptatum pariatur. Dolorem quia neque doloremque rerum consectetur
+				ipsam expedita excepturi ad vel quaerat? Quis.
 			</p>
 		</div>
 	</div>

@@ -94,9 +94,6 @@ export class LoginCustom {
                     rpassword: {
                         required: true,
                     },
-                    agree: {
-                        required: true,
-                    },
                 },
             });
             if (!form.valid()) {

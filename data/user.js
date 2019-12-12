@@ -11,7 +11,7 @@ module.exports = {
             throw `No people with that ${password}`;
         }
         const userCollection = await user();
-        let info = {'username': username};
+        let info = { 'username': username };
 
         try {
             const userPWD = await userCollection.find(info).toArray();
@@ -28,7 +28,7 @@ module.exports = {
             throw `No user with that username: ${cookie}`;
         }
         const userCollection = await user();
-        let info = {'username': cookie};
+        let info = { 'username': cookie };
 
         try {
             const userPWD = await userCollection.find(info).toArray();
@@ -41,6 +41,77 @@ module.exports = {
         } catch (e) {
             throw e;
         }
-    }
+    },
+
+    async getUserByUsernameOrEmail(username, email) {
+        const userCollection = await user();
+        const currUser = await userCollection.findOne({ $or: [{ username: username }, { email: email }] });
+        return currUser;
+    },
+
+    async createHashedPassword(password) {
+        try {
+            if (!password)
+                throw "Password not given";
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+            return hashedPassword;
+        } catch (e) {
+            throw e;
+        }
+    },
+
+    async getUserById(id) {
+        if (!id)
+            throw "You must provide a id for your post";
+        else if (!ObjectID.isValid(id)) {
+            if (typeof id === 'string') {//id type is 'string' you'll have to convert into ObjectID 
+                id = ObjectID(id);
+            }
+            else {
+                throw `id:${id}, Must Be STRING OR OBJECT ID`;
+            }
+        }
+
+        const userCollection = await user();
+        const userGet = await userCollection.findOne({ _id: ObjectID(id) });
+        if (userGet === null)
+            throw "No user with that id";
+
+        return userGet.username;
+        // {
+        //     // _id: ,
+        //     firstName: userGet.firstName,
+        //     lastName: userGet.lastName,
+        //     email: userGet.email,
+        //     username: userGet.username,
+        //     // hashedPassword: userGet.hashedPassword,
+        //     interestPlaces: userGet.interestPlaces,
+        //     preferredFood: userGet.preferredFood,
+        //     toDoList: userGet.toDoList,
+        //     postedReviews: userGet.postedReviews,
+        //     postedRatings: userGet.postedRatings
+        // };
+    },
+
+    async addUser(firstName, lastName, email, username, hashedPassword) {
+        //need error checking here
+        let newUser = {
+            // _id: ,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            username: username.toLowerCase(),
+            hashedPassword: hashedPassword,
+            interestPlaces: [],
+            preferredFood: [],
+            toDoList: [],
+            postedReviews: [],
+            postedRatings: []
+        };
+        const userCollection = await user();
+        const newInsertInformation = await userCollection.insertOne(newUser);
+        const newId = await newInsertInformation.insertedId;
+        await this.getUserById(newId);
+    },
 };
 
