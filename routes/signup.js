@@ -1,4 +1,4 @@
-//data format:
+//user data format:
 // {
 //     "_id": "lsa8s9d8asfasfg39234n42",
 //     “firstname” : “Mike”,
@@ -19,25 +19,35 @@ const userData = data.user;
 const path = require("path");
 const xss = require('xss');
 
-router.get("/", async (req, res) => {
-    try {
-        if (req.cookies.AuthCookie) {
-            res.redirect('/todolist');
-        }
-        else {
-            //The form with jQuerry & AJAX:
-            res.render("signup/signup", {
-                partial: "signup-scripts"
-            });
-        }
-    } catch (e) {
-        res.render("error", { error: "--- OOPS ---" + e });
+// router.get("/", async (req, res) => {
+//     try {
+//         if (req.cookies.AuthCookie) {
+//             res.redirect('/todolist');
+//         }
+//         else {
+//             //The form with jQuerry & AJAX:
+//             res.render("signup/signup", {
+//                 partial: "signup-scripts"
+//             });
+//         }
+//     } catch (e) {
+//         res.render("error", { error: "--- OOPS ---" + e });
+//     }
+// });
+router.get("/", (req, res) => {
+    if (req.cookies.AuthCookie) {
+        res.redirect("/private");
+    }
+    else {
+        const newpath = path.join(__dirname, "../dist/index.html")
+        res.sendFile(newpath);
     }
 });
 
 router.post("/", async (req, res) => {
 
     let newUser = req.body;
+    let {firstename, lastname, email, username, password, cpassword} = newUser;
     // {
     //     FirstName: 's',
     //     LastName: 's',
@@ -47,16 +57,17 @@ router.post("/", async (req, res) => {
     //     ConfirmPassword: 'a'
     // }
     try {
-        if (!newUser.FirstName)
-            res.status(401).render("signup/signup", {
-                partial: "signup-scripts",
-                error: `not provide FirstName`
-            });
-        if (!newUser.LastName)
-            res.status(401).render("signup/signup", {
-                partial: "signup-scripts",
-                error: `not provide Password`
-            });
+        //check error:
+        // if (!newUser.FirstName)
+        //     res.status(401).render("signup/signup", {
+        //         partial: "signup-scripts",
+        //         error: `not provide FirstName`
+        //     });
+        // if (!newUser.LastName)
+        //     res.status(401).render("signup/signup", {
+        //         partial: "signup-scripts",
+        //         error: `not provide Password`
+        //     });
         // if (!newUser.Email)
         //     res.status(401).render('signup/signup', { error: `not provide Email` });
         // if (!newUser.UserName)
@@ -70,20 +81,19 @@ router.post("/", async (req, res) => {
             //passwords do not match
             //We need to display error to user better
             //TODO:
-            res.status(401).render("signup/signup", {
-                partial: "signup-scripts",
-                error: `not match`
-            });
+            res.status(401).json(`password not match`);
         } else {
             const user = userData.getUserByUsernameOrEmail(newUser.UserName.toLowerCase(), newUser.Email);
             if (user) {
                 //Username already in system
                 //We need to display error to user better
                 //TODO: should do in AJAX way
-                res.status(401).render("signup/signup", {
-                    partial: "signup-scripts",
-                    error: 'Username or User Email Already Exists' 
-                });
+                // res.status(401).render("signup/signup", {
+                //     partial: "signup-scripts",
+                //     error: 'Username or User Email Already Exists'
+                // });
+                res.status(401).json('Username or User Email Already Exists');
+
             } else {
                 const hashedPassword = await usersData.createHashedPassword(xss(newUser.Password))
                 const userCreated = await userData.addUser(

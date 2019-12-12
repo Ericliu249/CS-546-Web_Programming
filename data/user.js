@@ -11,7 +11,7 @@ module.exports = {
             throw `No people with that ${password}`;
         }
         const userCollection = await user();
-        let info = {'username': username};
+        let info = { 'username': username };
 
         try {
             const userPWD = await userCollection.find(info).toArray();
@@ -28,7 +28,7 @@ module.exports = {
             throw `No user with that username: ${cookie}`;
         }
         const userCollection = await user();
-        let info = {'username': cookie};
+        let info = { 'username': cookie };
 
         try {
             const userPWD = await userCollection.find(info).toArray();
@@ -42,7 +42,7 @@ module.exports = {
             throw e;
         }
     },
-    
+
     async getUserByUsernameOrEmail(username, email) {
         const userCollection = await user();
         const currUser = await userCollection.findOne({ $or: [{ username: username }, { email: email }] });
@@ -77,24 +77,36 @@ module.exports = {
         if (userGet === null)
             throw "No user with that id";
 
-        return userGet;
+        return userGet.username;
+        // {
+        //     // _id: ,
+        //     firstName: userGet.firstName,
+        //     lastName: userGet.lastName,
+        //     email: userGet.email,
+        //     username: userGet.username,
+        //     // hashedPassword: userGet.hashedPassword,
+        //     interestPlaces: userGet.interestPlaces,
+        //     preferredFood: userGet.preferredFood,
+        //     toDoList: userGet.toDoList,
+        //     postedReviews: userGet.postedReviews,
+        //     postedRatings: userGet.postedRatings
+        // };
     },
 
     async addUser(firstName, lastName, email, username, hashedPassword) {
         //need error checking here
         let newUser = {
             // _id: ,
-            username: username.toLowerCase(),
             firstName: firstName,
             lastName: lastName,
             email: email,
-            gender: gender,
-            city: city,
-            state: state,
-            age: age,
-            password: hashedPassword,
-            pollsCreated: [],
-            pollsVotedIn: []
+            username: username.toLowerCase(),
+            hashedPassword: hashedPassword,
+            interestPlaces: [],
+            preferredFood: [],
+            toDoList: [],
+            postedReviews: [],
+            postedRatings: []
         };
         const userCollection = await user();
         const newInsertInformation = await userCollection.insertOne(newUser);
