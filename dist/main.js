@@ -16,7 +16,17 @@ var map = {
 	],
 	"./pages/dashboard/dashboard.module": [
 		"./src/app/admin/pages/dashboard/dashboard.module.ts",
+		"default~pages-dashboard-dashboard-module~pages-oneDayList-oneDayList-module",
 		"pages-dashboard-dashboard-module"
+	],
+	"./pages/oneDayList/oneDayList.module": [
+		"./src/app/admin/pages/oneDayList/oneDayList.module.ts",
+		"default~pages-dashboard-dashboard-module~pages-oneDayList-oneDayList-module",
+		"pages-oneDayList-oneDayList-module"
+	],
+	"./pages/place/place.module": [
+		"./src/app/admin/pages/place/place.module.ts",
+		"pages-place-place-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -227,8 +237,18 @@ var ScriptLoaderService = /** @class */ (function () {
             }
         });
     };
-    ScriptLoaderService.prototype.getTodolists = function (http) {
-        return http.get("http://localhost:3000/todolist/getAll");
+    ScriptLoaderService.prototype.getTodolists = function (http, city) {
+        //let city="New York";
+        return http.get("http://localhost:3000/todolist/getTodolistByLocation/" + city);
+    };
+    ScriptLoaderService.prototype.getTodolistById = function (http, id) {
+        return http.get("http://localhost:3000/todolist/getById/" + id);
+    };
+    ScriptLoaderService.prototype.getOneDaylists = function (http, id) {
+        return http.get("http://localhost:3000/todolist/getAllOnedaylist/" + id);
+    };
+    ScriptLoaderService.prototype.getPlace = function (http, id) {
+        return http.get("http://localhost:3000/todolist/getPlaceByOnedaylistId/" + id);
     };
     ScriptLoaderService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
@@ -272,7 +292,19 @@ var routes = [
         'children': [
             {
                 'path': 'admin',
-                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule',
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+            },
+            /*{
+                'path': 'admin1/:location',
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+            },*/
+            {
+                'path': 'onedaylist/:id',
+                'loadChildren': '.\/pages\/oneDayList\/oneDayList.module#OneDayListModule'
+            },
+            {
+                'path': 'place/:id',
+                'loadChildren': '.\/pages\/place\/place.module#PlaceModule'
             },
             {
                 'path': '',
@@ -462,8 +494,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var routes = [
     { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
     { path: 'logout', component: _auth_logout_logout_component__WEBPACK_IMPORTED_MODULE_2__["LogoutComponent"] },
-    //{ path: '', redirectTo: 'admin', pathMatch: 'full' },
-    { path: '', loadChildren: './admin/admin.module#AdminModule' },
+    { path: '', loadChildren: './admin/admin.module#AdminModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -2038,7 +2069,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/lily/Downloads/angular5-metronic-master/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/lily/Downloads/angular5-metronic-master 2/src/main.ts */"./src/main.ts");
 
 
 /***/ })

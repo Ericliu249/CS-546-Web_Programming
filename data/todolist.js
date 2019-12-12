@@ -12,6 +12,42 @@ module.exports = {
         } catch (e) {
             throw e;
         }
+    },
+    async getById(id) {
+        try {
+            const todolistCollection = await todolist();
+            const todolistArray = await todolistCollection.findOne({_id: id});
+            if (todolistArray === null) throw `No todolistArray`;
+            return todolistArray;
+        } catch (e) {
+            throw e;
+        }
+    },
+    async getByOnedaylistId(id) {
+        try {
+            var searchPost = {
+                "oneDayListId._id": id
+            };
+            const todolistCollection = await todolist();
+            const todolistArray = await todolistCollection.find(searchPost).toArray();
+            if (todolistArray === null) throw `No todolistArray`;
+            return todolistArray;
+        } catch (e) {
+            throw e;
+        }
+    },
+    async getTodolistByLocation(location){
+        try {
+            var searchPost = {
+                "oneDayListId.location": location
+            };
+            const todolistCollection = await todolist();
+            const todolistArray = await todolistCollection.find(searchPost).toArray();
+            if (todolistArray === null) throw `No todolistArray`;
+            return todolistArray;
+        } catch (e) {
+            throw e;
+        }
     }
 };
 
