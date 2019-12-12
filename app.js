@@ -6,10 +6,10 @@ const app = express();
 const configRoutes = require("./routes");
 const exphbs = require("express-handlebars");
 const path = require("path");
-let runStartup=require("./routes/startup");
-runStartup().then(function(allList) {
+let runStartup = require("./routes/startup");
+runStartup().then(function (allList) {
     console.log(
-        "After the advanced document setup has been complete, we have the following movies:"
+        "After the advanced document setup has been complete, we have the following todolists:"
     );
     console.log(allList);
 });
