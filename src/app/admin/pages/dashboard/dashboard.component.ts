@@ -65,12 +65,17 @@ import {ActivatedRoute} from "@angular/router";
 													</span>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/New York">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin">
+                                                                <span class="m-nav__link-text">All cities</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=New York">
                                                                 <span class="m-nav__link-text">New york</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/Tokyo">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Tokyo">
                                                                 <span class="m-nav__link-text">Tokyo</span>
                                                             </a>
                                                         </li>
@@ -132,13 +137,12 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
     }
 
     ngOnInit() {
-        this._router.params.subscribe((params) => {
-            this.model.location = params;
+        this._router.queryParams.subscribe((params) => {
+            this.model.location = params['location'];
         });
-        if (this.model.location.size == undefined) {
+        /*if (this.model.location == null) {
             this.model.location = "New York";
-        }
-        //console.log(typeof this.model.location);
+        }*/
         this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);

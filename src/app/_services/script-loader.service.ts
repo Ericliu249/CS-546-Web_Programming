@@ -90,7 +90,6 @@ export class ScriptLoaderService {
     }
 
     getTodolists(http: HttpClient,city): Observable<Todolist[]> {
-        //let city="New York";
         return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByLocation/"+city);
     }
 

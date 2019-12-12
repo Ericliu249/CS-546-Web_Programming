@@ -238,7 +238,6 @@ var ScriptLoaderService = /** @class */ (function () {
         });
     };
     ScriptLoaderService.prototype.getTodolists = function (http, city) {
-        //let city="New York";
         return http.get("http://localhost:3000/todolist/getTodolistByLocation/" + city);
     };
     ScriptLoaderService.prototype.getTodolistById = function (http, id) {
@@ -292,11 +291,13 @@ var routes = [
         'children': [
             {
                 'path': 'admin',
-                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule',
+                'data': { location: 'location' }
             },
             /*{
-                'path': 'admin1/:location',
-                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+                'path': 'admin',
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule',
+                'params': ''
             },*/
             {
                 'path': 'onedaylist/:id',

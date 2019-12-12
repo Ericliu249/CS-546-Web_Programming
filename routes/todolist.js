@@ -38,8 +38,13 @@ router.get("/getAllOnedaylist/:id", async (req, res) => {
 });
 router.get("/getTodolistByLocation/:location", async (req, res) => {
     try {
-        const getOne = await todolistData.getTodolistByLocation(req.params.location);
-        res.json(getOne);
+        if (req.params.location == 'undefined') {
+            const getAll = await todolistData.getAllList();
+            res.json(getAll);
+        } else {
+            const getOne = await todolistData.getTodolistByLocation(req.params.location);
+            res.json(getOne);
+        }
     } catch (e) {
         res.status(403);
         res.render("people/errorDetails", {error: "Can't find onedaylist!"});

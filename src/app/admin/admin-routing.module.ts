@@ -11,11 +11,13 @@ const routes: Routes = [
         'children': [
             {
                 'path': 'admin',
-                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule',
+                'data': {location: 'location'}
             },
             /*{
-                'path': 'admin1/:location',
-                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule'
+                'path': 'admin',
+                'loadChildren': '.\/pages\/dashboard\/dashboard.module#DashboardModule',
+                'params': ''
             },*/
             {
                 'path': 'onedaylist/:id',
