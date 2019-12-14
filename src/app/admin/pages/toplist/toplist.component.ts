@@ -20,6 +20,7 @@ export class ToplistComponent implements OnInit, AfterViewInit, AfterContentInit
     todolists$: Observable<Todolist[]>;
     safeHtml: SafeHtml;
     model: any = {};
+    count = [1,2,3,4,5];
 
     constructor(private _script: ScriptLoaderService, private toastr: ToastrService, private http: HttpClient, private sanitizer: DomSanitizer, private _router: ActivatedRoute) {
     }
@@ -32,7 +33,6 @@ export class ToplistComponent implements OnInit, AfterViewInit, AfterContentInit
             this.model.location = "New York";
         }*/
         this.todolists$ = this._script.getTopTodolists(this.http).pipe(map(data => _.values(data)));
-        console.log(this.todolists$);
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);
         });
