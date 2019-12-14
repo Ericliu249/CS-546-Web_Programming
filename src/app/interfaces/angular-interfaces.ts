@@ -41,6 +41,21 @@ export interface Place {
     wiki: string;
 }
 
+export interface UserInfo {
+    _id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    username: string;
+    interestPlaces: string;
+    preferredFood: string;
+    toDoList: Observable<Todolist[]>;
+    postedReviews: string;
+    postedRatings: string;
+    preferDistance: number,
+    dietaryRestrictions: string
+}
+
 export interface AjaxResponse<T> {
     success: boolean,
     errorMessage?: string,

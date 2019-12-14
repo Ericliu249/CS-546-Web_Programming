@@ -10,7 +10,7 @@ function runSetup() {
         return mydb.createCollection("todolist");
     }).then(function (todolistCollection) {
 
-        var makeDoc = function (day, name, description, location, imgurl, distance,time,traveltime) {
+        var makeDoc = function (day, name, description, location, imgurl, distance, time, traveltime) {
             return {
                 _id: Guid.create().toString(),
                 day: day,
@@ -19,8 +19,8 @@ function runSetup() {
                 location: location,
                 imgurl: imgurl,
                 distance: distance,
-                time:time,
-                traveltime:traveltime,
+                time: time,
+                traveltime: traveltime,
                 recommendPlaceId: []
             };
         };
@@ -721,8 +721,62 @@ function runSetup() {
                         username: "masterdetective123",
                         firstName: "Sherlock",
                         lastName: "Holmes",
-                        profession: "Detective",
-                        bio: "Sherlock Holmes (/ˈʃɜːrlɒk ˈhoʊmz/) is a fictional private detective created by British author Sir Arthur Conan Doyle. Known as a \"consulting detective\" in the stories, Holmes is known for a proficiency with observation, forensic science, and logical reasoning that borders on the fantastic, which he employs when investigating cases for a wide variety of clients, including Scotland Yard.",
+                        email: "Sherlock@aa.com",
+                        interestPlaces: [{
+                            value: 1, name: 'interestPlaces', isChecked: true, selected: "Cities"
+                        },
+                            {
+                                value: 2, name: 'interestPlaces', isChecked: false, selected: "Nature"
+                            },
+                            {
+                                value: 3, name: 'interestPlaces', isChecked: false, selected: "Mountain/Hills"
+                            },
+                            {
+                                value: 4, name: 'interestPlaces', isChecked: true, selected: "Beaches"
+                            },
+                            {
+                                value: 5, name: 'interestPlaces', isChecked: true, selected: "Historic"
+                            }],
+                        preferredFood: [{
+                            value: 1, name: 'preferredFood', isChecked: false, selected: "Spanish/Hispanic"
+                        },
+                            {
+                                value: 2, name: 'preferredFood', isChecked: true, selected: "Asian"
+                            },
+                            {
+                                value: 3, name: 'preferredFood', isChecked: false, selected: "American"
+                            },
+                            {
+                                value: 4, name: 'preferredFood', isChecked: true, selected: "Middle Eastern"
+                            },
+                            {
+                                value: 5, name: 'preferredFood', isChecked: false, selected: "European"
+                            }],
+                        preferDistance: [{
+                            value: 1, name: 'preferDistance', isChecked: false, selected: "<5 miles"
+                        },
+                            {
+                                value: 2, name: 'preferDistance', isChecked: true, selected: "5 miles - 10 miles"
+                            },
+                            {
+                                value: 3, name: 'preferDistance', isChecked: false, selected: "10 miles - 20 miles"
+                            },
+                            {
+                                value: 4, name: 'preferDistance', isChecked: false, selected: ">20 miles"
+                            }],
+                        dietaryRestrictions: [{
+                            value: 1, name: 'dietaryRestrictions', isChecked: false, selected: "Vegetarian"
+                        },
+                            {
+                                value: 2, name: 'dietaryRestrictions', isChecked: true, selected: "Gluten free"
+                            },
+                            {
+                                value: 3, name: 'dietaryRestrictions', isChecked: false, selected: "Seafood allergy"
+                            }],
+                        toDoList: [],
+                        postedReviews: [],
+                        postedRatings: [],
+                        imgurl: "./assets/app/media/img/users/user3.jpg",
                         hashedPassword: "$2a$16$7JKSiEmoP3GNDSalogqgPu0sUbwder7CAN/5wnvCWe6xCKAKwlTD."
                     })
                     .then(function (newDoc) {
@@ -734,8 +788,62 @@ function runSetup() {
                             username: "lemon",
                             firstName: "Elizabeth",
                             lastName: "Lemon",
-                            profession: "Writer",
-                            bio: "Elizabeth Miervaldis \"Liz\" Lemon is the main character of the American television series 30 Rock. She created and writes for the fictional comedy-sketch show The Girlie Show or TGS with Tracy Jordan.",
+                            email: "Elizabeth@bb.com",
+                            interestPlaces: [{
+                                value: 1, name: 'interestPlaces', isChecked: true, selected: "Cities"
+                            },
+                                {
+                                    value: 2, name: 'interestPlaces', isChecked: false, selected: "Nature"
+                                },
+                                {
+                                    value: 3, name: 'interestPlaces', isChecked: false, selected: "Mountain/Hills"
+                                },
+                                {
+                                    value: 4, name: 'interestPlaces', isChecked: true, selected: "Beaches"
+                                },
+                                {
+                                    value: 5, name: 'interestPlaces', isChecked: true, selected: "Historic"
+                                }],
+                            preferredFood: [{
+                                value: 1, name: 'preferredFood', isChecked: false, selected: "Spanish/Hispanic"
+                            },
+                                {
+                                    value: 2, name: 'preferredFood', isChecked: true, selected: "Asian"
+                                },
+                                {
+                                    value: 3, name: 'preferredFood', isChecked: false, selected: "American"
+                                },
+                                {
+                                    value: 4, name: 'preferredFood', isChecked: true, selected: "Middle Eastern"
+                                },
+                                {
+                                    value: 5, name: 'preferredFood', isChecked: false, selected: "European"
+                                }],
+                            preferDistance: [{
+                                value: 1, name: 'preferDistance', isChecked: false, selected: "<5 miles"
+                            },
+                                {
+                                    value: 2, name: 'preferDistance', isChecked: true, selected: "5 miles - 10 miles"
+                                },
+                                {
+                                    value: 3, name: 'preferDistance', isChecked: false, selected: "10 miles - 20 miles"
+                                },
+                                {
+                                    value: 4, name: 'preferDistance', isChecked: false, selected: ">20 miles"
+                                }],
+                            dietaryRestrictions: [{
+                                value: 1, name: 'dietaryRestrictions', isChecked: false, selected: "Vegetarian"
+                            },
+                                {
+                                    value: 2, name: 'dietaryRestrictions', isChecked: true, selected: "Gluten free"
+                                },
+                                {
+                                    value: 3, name: 'dietaryRestrictions', isChecked: false, selected: "Seafood allergy"
+                                }],
+                            toDoList: [],
+                            postedReviews: [],
+                            postedRatings: [],
+                            imgurl: "./assets/app/media/img/users/user5.jpg",
                             hashedPassword: "$2a$16$SsR2TGPD24nfBpyRlBzINeGU61AH0Yo/CbgfOlU1ajpjnPuiQaiDm"
                         });
                     })
@@ -745,8 +853,62 @@ function runSetup() {
                             username: "theboywholived",
                             firstName: "Harry",
                             lastName: "Potter",
-                            profession: "Student",
-                            bio: "Harry Potter is a series of fantasy novels written by British author J. K. Rowling. The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry . The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic, and subjugate all wizards and Muggles.",
+                            email: "Harry@aa.com",
+                            interestPlaces: [{
+                                value: 1, name: 'interestPlaces', isChecked: true, selected: "Cities"
+                            },
+                                {
+                                    value: 2, name: 'interestPlaces', isChecked: false, selected: "Nature"
+                                },
+                                {
+                                    value: 3, name: 'interestPlaces', isChecked: false, selected: "Mountain/Hills"
+                                },
+                                {
+                                    value: 4, name: 'interestPlaces', isChecked: true, selected: "Beaches"
+                                },
+                                {
+                                    value: 5, name: 'interestPlaces', isChecked: true, selected: "Historic"
+                                }],
+                            preferredFood: [{
+                                value: 1, name: 'preferredFood', isChecked: false, selected: "Spanish/Hispanic"
+                            },
+                                {
+                                    value: 2, name: 'preferredFood', isChecked: true, selected: "Asian"
+                                },
+                                {
+                                    value: 3, name: 'preferredFood', isChecked: false, selected: "American"
+                                },
+                                {
+                                    value: 4, name: 'preferredFood', isChecked: true, selected: "Middle Eastern"
+                                },
+                                {
+                                    value: 5, name: 'preferredFood', isChecked: false, selected: "European"
+                                }],
+                            preferDistance: [{
+                                value: 1, name: 'preferDistance', isChecked: false, selected: "<5 miles"
+                            },
+                                {
+                                    value: 2, name: 'preferDistance', isChecked: true, selected: "5 miles - 10 miles"
+                                },
+                                {
+                                    value: 3, name: 'preferDistance', isChecked: false, selected: "10 miles - 20 miles"
+                                },
+                                {
+                                    value: 4, name: 'preferDistance', isChecked: false, selected: ">20 miles"
+                                }],
+                            dietaryRestrictions: [{
+                                value: 1, name: 'dietaryRestrictions', isChecked: true, selected: "Vegetarian"
+                            },
+                                {
+                                    value: 2, name: 'dietaryRestrictions', isChecked: false, selected: "Gluten free"
+                                },
+                                {
+                                    value: 3, name: 'dietaryRestrictions', isChecked: false, selected: "Seafood allergy"
+                                }],
+                            toDoList: [],
+                            postedReviews: [],
+                            postedRatings: [],
+                            imgurl: "./assets/app/media/img/users/user4.jpg",
                             hashedPassword: "$2a$16$4o0WWtrq.ZefEmEbijNCGukCezqWTqz1VWlPm/xnaLM8d3WlS5pnK"
                         });
                     })

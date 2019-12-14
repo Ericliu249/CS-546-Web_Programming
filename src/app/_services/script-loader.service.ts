@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import * as $ from 'jquery';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {OneDaylist, Place, Todolist} from '../interfaces/angular-interfaces';
+import {OneDaylist, Place, Todolist, UserInfo} from '../interfaces/angular-interfaces';
 
 declare let document: any;
 
@@ -89,8 +89,8 @@ export class ScriptLoaderService {
         });
     }
 
-    getTodolists(http: HttpClient,city): Observable<Todolist[]> {
-        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByLocation/"+city);
+    getTodolists(http: HttpClient, city): Observable<Todolist[]> {
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByLocation/" + city);
     }
 
     getTodolistById(http: HttpClient, id): Observable<Todolist> {
@@ -100,7 +100,28 @@ export class ScriptLoaderService {
     getOneDaylists(http: HttpClient, id): Observable<OneDaylist[]> {
         return http.get<OneDaylist[]>("http://localhost:3000/todolist/getAllOnedaylist/" + id);
     }
+
     getPlace(http: HttpClient, id): Observable<Place> {
         return http.get<Place>("http://localhost:3000/todolist/getPlaceByOnedaylistId/" + id);
+    }
+
+    signup(http: HttpClient, user): Observable<UserInfo> {
+        return http.post<UserInfo>("http://localhost:3000/admin/signup", user);
+    }
+
+    signin(http: HttpClient, user): Observable<UserInfo> {
+        return http.post<UserInfo>("http://localhost:3000/admin/login", user);
+    }
+
+    logout(http: HttpClient) {
+        return http.get("http://localhost:3000/admin/logout");
+    }
+
+    getUserById(http: HttpClient, id) {
+        return http.get<UserInfo>("http://localhost:3000/admin/getById/" + id);
+    }
+
+    update(http:HttpClient,user){
+        return http.post<UserInfo>("http://localhost:3000/admin/update", user);
     }
 }

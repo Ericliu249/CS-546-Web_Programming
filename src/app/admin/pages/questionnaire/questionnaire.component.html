@@ -1,0 +1,94 @@
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--tab">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+												<span class="m-portlet__head-icon m--hide">
+													<i class="la la-gear"></i>
+												</span>
+                            <h3 class="m-portlet__head-text">
+                                My Profile
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <!--begin::Section-->
+                    <div class="m-section">
+											<span class="m-section__sub">
+											</span>
+                        <div class="m-section__content">
+                            <div class="m-demo" data-code-preview="true" data-code-html="true" data-code-js="false">
+                                <div class="m-demo__preview">
+                                    <!--begin::Form-->
+                                    <form class="m-form" (ngSubmit)="update()" action="" id="updateF">
+                                        <div class="m-form__group form-group">
+                                            <label for="">
+                                                What type of places do you like to visit?
+                                            </label>
+                                            <div class="m-checkbox-list">
+                                                <label class="m-checkbox" *ngFor="let test of interestPlaces" >
+                                                    <input type="checkbox" name="{{test.name}}" value="{{test.value}}" [checked]="test.isChecked">
+                                                    {{test.selected}}
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="m-form__group form-group">
+                                            <label>
+                                                How far are you willing to travel from your hotel?
+                                            </label>
+                                            <div class="m-radio-list">
+                                                <label class="m-radio m-radio--state-success" *ngFor="let test of preferDistance" >
+                                                    <input type="radio" name="{{test.name}}" value="{{test.value}}" [checked]="test.isChecked">
+                                                    {{test.selected}}
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="m-form__group form-group">
+                                            <label>
+                                                Do you have any dietary restrictions?
+                                            </label>
+                                            <div class="m-checkbox-list">
+                                                <label class="m-checkbox m-checkbox--state-brand" *ngFor="let test of dietaryRestrictions" >
+                                                    <input type="checkbox" name="{{test.name}}" value="{{test.value}}" [checked]="test.isChecked">
+                                                    {{test.selected}}
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="m-form__group form-group">
+                                            <label>
+                                                What type of food do you like?
+                                            </label>
+                                            <div class="m-checkbox-list">
+                                                <label class="m-checkbox m-checkbox--state-primary" *ngFor="let test of preferredFood" >
+                                                    <input type="checkbox" name="{{test.name}}" value="{{test.value}}" [checked]="test.isChecked">
+                                                    {{test.selected}}
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="m-login__form-action">
+                                        <button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_update"
+                                                class="btn btn-focus m-btn m-btn&#45;&#45;pill m-btn&#45;&#45;custom m-btn&#45;&#45;air">
+                                            Update
+                                        </button>
+                                        </div>
+                                    </form>
+                                    <!--end::Form-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Section-->
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

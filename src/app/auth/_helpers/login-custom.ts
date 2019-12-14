@@ -81,18 +81,24 @@ export class LoginCustom {
             let form = $(e.target).closest('form');
             form.validate({
                 rules: {
-                    fullname: {
-                        required: true,
+                    firstname: {
+                        required: true
+                    },
+                    lastname: {
+                        required: true
                     },
                     email: {
                         required: true,
-                        email: true,
+                        email: true
+                    },
+                    username: {
+                        required: true
                     },
                     password: {
-                        required: true,
+                        required: true
                     },
                     rpassword: {
-                        required: true,
+                        required: true
                     },
                 },
             });
