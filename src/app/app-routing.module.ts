@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LogoutComponent } from "./auth/logout/logout.component";
-import {OneDayListComponent} from "./admin/pages/oneDayList/oneDayList.component";
 
 const routes: Routes = [
     { path: 'login', loadChildren: './auth/auth.module#AuthModule' },

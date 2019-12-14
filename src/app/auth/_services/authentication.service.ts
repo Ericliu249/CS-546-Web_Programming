@@ -8,8 +8,8 @@ export class AuthenticationService {
     constructor(private http: HttpClient  ) {
     }
 
-    login(email: string, password: string) {
-        return  localStorage.setItem('currentUser', JSON.stringify({email, password}));
+    login(id: string) {
+        return  localStorage.setItem('currentUser', JSON.stringify({id}));
     }
 
     logout() {

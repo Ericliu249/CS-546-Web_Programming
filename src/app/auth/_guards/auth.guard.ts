@@ -10,11 +10,11 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-        console.log("authguard", localStorage.getItem('currentUser'));
+        //console.log("authguard", localStorage.getItem('currentUser'));
         let data = localStorage.getItem('currentUser');         
         if (data !== null) {
             // logged in so return true
-            console.log("logged in", data);
+            //console.log("logged in", data);
             return true;
         }
         // error when verify so redirect to login page with the return url

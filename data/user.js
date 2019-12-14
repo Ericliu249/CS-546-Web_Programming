@@ -2,23 +2,27 @@ const mongoCollections = require("../config/mongoCollections");
 const user = mongoCollections.user;
 const bcrypt = require("bcrypt");
 const saltRounds = 16;
+const ObjectID = require('mongodb').ObjectID;
 module.exports = {
-    async checkPassword(username, password) {
-        if (typeof username != 'string' || !username) {
-            throw `No people with that ${username}`;
+    async checkPassword(email, password) {
+        if (typeof email != 'string' || !email) {
+            throw `No people with that ${email}`;
         }
         if (typeof password != 'string' || !password) {
             throw `No people with that ${password}`;
         }
         const userCollection = await user();
-        let info = { 'username': username };
+        let info = {'email': email};
 
         try {
             const userPWD = await userCollection.find(info).toArray();
-            if (userPWD === null) throw `No user with that ${username}`;
-            if (userPWD.length == 0) throw `No user with that ${username}`;
+            if (userPWD === null) throw `No user with that ${email}`;
+            if (userPWD.length == 0) throw `No user with that ${email}`;
             const result = await bcrypt.compare(password, userPWD[0].hashedPassword);
-            return result;
+            if (result) {
+                return userPWD[0];
+            }
+            throw `Password is wrong!`;
         } catch (e) {
             throw e;
         }
@@ -28,7 +32,7 @@ module.exports = {
             throw `No user with that username: ${cookie}`;
         }
         const userCollection = await user();
-        let info = { 'username': cookie };
+        let info = {'username': cookie};
 
         try {
             const userPWD = await userCollection.find(info).toArray();
@@ -45,7 +49,7 @@ module.exports = {
 
     async getUserByUsernameOrEmail(username, email) {
         const userCollection = await user();
-        const currUser = await userCollection.findOne({ $or: [{ username: username }, { email: email }] });
+        const currUser = await userCollection.findOne({$or: [{username: username}, {email: email}]});
         return currUser;
     },
 
@@ -63,7 +67,7 @@ module.exports = {
     async getUserById(id) {
         if (!id)
             throw "You must provide a id for your post";
-        else if (!ObjectID.isValid(id)) {
+        /*else if (!ObjectID.isValid(id)) {
             if (typeof id === 'string') {//id type is 'string' you'll have to convert into ObjectID 
                 id = ObjectID(id);
             }
@@ -71,26 +75,13 @@ module.exports = {
                 throw `id:${id}, Must Be STRING OR OBJECT ID`;
             }
         }
-
+*/
         const userCollection = await user();
-        const userGet = await userCollection.findOne({ _id: ObjectID(id) });
+        const userGet = await userCollection.findOne({_id: id});
         if (userGet === null)
             throw "No user with that id";
 
-        return userGet.username;
-        // {
-        //     // _id: ,
-        //     firstName: userGet.firstName,
-        //     lastName: userGet.lastName,
-        //     email: userGet.email,
-        //     username: userGet.username,
-        //     // hashedPassword: userGet.hashedPassword,
-        //     interestPlaces: userGet.interestPlaces,
-        //     preferredFood: userGet.preferredFood,
-        //     toDoList: userGet.toDoList,
-        //     postedReviews: userGet.postedReviews,
-        //     postedRatings: userGet.postedRatings
-        // };
+        return userGet;
     },
 
     async addUser(firstName, lastName, email, username, hashedPassword) {
@@ -110,8 +101,20 @@ module.exports = {
         };
         const userCollection = await user();
         const newInsertInformation = await userCollection.insertOne(newUser);
-        const newId = await newInsertInformation.insertedId;
-        await this.getUserById(newId);
+        return newInsertInformation;
     },
+    async update(id, interestPlaces, preferredFood, preferDistance, dietaryRestrictions) {
+        //need error checking here
+        let newUser = {
+            interestPlaces: interestPlaces,
+            preferredFood: preferredFood,
+            preferDistance: preferDistance,
+            dietaryRestrictions: dietaryRestrictions
+        };
+        const userCollection = await user();
+        const newInsertInformation = await userCollection.updateOne(id, newUser);
+        return newInsertInformation;
+    }
+
 };
 
