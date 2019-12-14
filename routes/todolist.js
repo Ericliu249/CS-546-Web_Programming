@@ -69,5 +69,14 @@ router.get("/", async (req, res) => {
         res.render("people/errorDetails", {error: "Can't find todolist!"});
     }
 });
+router.get("/getTop", async (req, res) => {
+    try {
+        const getAll = await todolistData.getTopList(3);
+        res.json(getAll);
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find todolist!"});
+    }
+});
 
 module.exports = router;

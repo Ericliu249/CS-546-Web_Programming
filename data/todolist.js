@@ -48,6 +48,18 @@ module.exports = {
         } catch (e) {
             throw e;
         }
-    }
+    },
+    async getTopList(limition) {
+        try {
+            const todolistCollection = await todolist();
+            const todolistArray = await todolistCollection.find().sort({'likes':-1}).limit(limition).toArray();
+            if (todolistArray === null) throw `No todolistArray`;
+            if (todolistArray.length == 0) throw `No todolistArray`;
+
+            return todolistArray;
+        } catch (e) {
+            throw e;
+        }
+    },
 };
 

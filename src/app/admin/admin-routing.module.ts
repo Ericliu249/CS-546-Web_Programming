@@ -15,6 +15,10 @@ const routes: Routes = [
                 'data': {location: 'location'}
             },
             {
+                'path': 'toplist',
+                'loadChildren': '.\/pages\/toplist\/toplist.module#ToplistModule',
+            },
+            {
                 'path': 'profile',
                 'loadChildren': '.\/pages\/questionnaire\/questionnaire.module#QuestionnaireModule'
             },
