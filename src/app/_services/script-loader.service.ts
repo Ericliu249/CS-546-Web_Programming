@@ -124,4 +124,8 @@ export class ScriptLoaderService {
     update(http:HttpClient,user){
         return http.post<UserInfo>("http://localhost:3000/admin/update", user);
     }
+
+    getTopTodolists(http: HttpClient): Observable<Todolist[]>{
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTop/");
+    }
 }
