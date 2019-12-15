@@ -18470,8 +18470,7 @@ body.m-portlet--fullscreen {
     .m-widget3 .m-widget3__item .m-widget3__header .m-widget3__user-img {
       margin-bottom: 0.7rem; }
       .m-widget3 .m-widget3__item .m-widget3__header .m-widget3__user-img .m-widget3__img {
-          width: 6rem;
-          height: 3.2rem;
+        width: 3.2rem;
         border-radius: 50%; }
     .m-widget3 .m-widget3__item .m-widget3__header .m-widget3__info {
       display: table-cell;
