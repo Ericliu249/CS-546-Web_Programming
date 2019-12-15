@@ -35,7 +35,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
                     <div class="blog-single-img">
                         <img src="{{places.image}}" style="height: 200px;"/></div>
                     <div class="blog-single-desc">
-                        <p [innerHtml]="safeHtml"></p><a href="{{places.wiki}}">Wikipedia</a>
+                        <p [innerHtml]="safeHtml"></p><a [routerLink]="[places.wiki]">Wikipedia</a>
                         <div class="m-widget13">
                             <div class="m-widget13__item">
                                             <span class="m-widget13__desc m--align-right" style="width: 10%">
@@ -83,7 +83,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
                     <div class="blog-single-foot">
                         <ul class="blog-post-tags">
                             <li class="uppercase">
-                                <a href="{{places.map}}" routerLink="{{places.map}}">Map</a>
+                                <a href="{{places.map}}" [routerLink]="[places.map]">Map</a>
                             </li>
                         </ul>
                     </div>
