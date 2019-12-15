@@ -7,12 +7,14 @@ const configRoutes = require("./routes");
 const exphbs = require("express-handlebars");
 const path = require("path");
 let runStartup = require("./routes/startup");
-// runStartup().then(function (allList) {
-//     console.log(
-//         "After the advanced document setup has been complete, we have the following todolists:"
-//     );
-//     console.log(allList);
-// });
+runStartup().then(function (allList) {
+    console.log(
+        "After the advanced document setup has been complete, we have the following todolists:"
+    );
+    console.log(allList);
+});
+/*let googleApi=require("./routes/googleApi");
+googleApi();*/
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/', function (req, res) {

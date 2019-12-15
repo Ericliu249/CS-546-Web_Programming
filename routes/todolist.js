@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const todolistData = data.todolist;
-const userData = data.user;
 
 router.get("/getAll", async (req, res) => {
     try {
@@ -89,9 +88,9 @@ router.get("/getTodolistByPreference/:id", async (req, res) => {
         } else {
             var user = await userData.getUserById(userId);
             var preference = [];
-            console.log(user.interestPlaces);
+            // console.log(user.interestPlaces);
             for( let i = 0; i < user.interestPlaces.length; i++){
-                console.log(user.interestPlaces[i]);
+                // console.log(user.interestPlaces[i]);
                 if(user.interestPlaces[i].isChecked === true)
                     preference.push(user.interestPlaces[i].selected);
             }

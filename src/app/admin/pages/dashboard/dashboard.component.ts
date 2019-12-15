@@ -164,7 +164,6 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
         this.todolists$ = this._script.getTodolistByPreference(this.http, JSON.parse(id).id).pipe(map(data => _.values(data)));
 
         // this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
-
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);
             if (this.model.location == null) {

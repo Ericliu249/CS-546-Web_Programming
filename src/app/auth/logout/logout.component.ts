@@ -27,18 +27,13 @@ export class LogoutComponent implements OnInit {
         $.ajax({
             url: "http://localhost:3000/admin/logout",
             type: 'GET',
-            dataType: 'json', // added data type
             success: function(res) {
-                this._authService.logout();
-                this._router.navigate(['/login']);
             }
-        })
-        /*this._script.logout(this.http).subscribe(success=>{
-            // reset login status
-            this._authService.logout();
-            this._router.navigate(['/login']);
-        },error=>{
-
-        });*/
+        });
+        this.navigate();
+    }
+    navigate():void{
+        this._authService.logout();
+        this._router.navigate(['/login']);
     }
 }
