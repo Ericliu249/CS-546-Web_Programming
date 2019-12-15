@@ -16,11 +16,10 @@ clone and install Node.js from https://nodejs.org/en/download/
   
 4) Install node modules
     npm install
-    
-5) Install yarn dependencies.
-  yarn install 
   
-6) Run Application 
+5) Run Application 
    ng serve or npm start
 
+Login
 
+6) Use username Harry@aa.com and password quidditch to continue or singup.
