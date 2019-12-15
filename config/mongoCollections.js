@@ -20,5 +20,6 @@ let getCollectionFn = collection => {
 module.exports = {
     user: getCollectionFn("users"),
     todolist: getCollectionFn("todolist"),
-    onedaylist: getCollectionFn("onedaylist")
+    onedaylist: getCollectionFn("onedaylist"),
+    reviews: getCollectionFn("reviews")
 };

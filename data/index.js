@@ -1,6 +1,7 @@
 const userRoutes = require("./user");
 const todolist = require("./todolist");
 const onedaylist = require("./onedaylist");
+const reviews = require("./reviews");
 
 
 let constructorMethod = app => {
@@ -12,5 +13,6 @@ let constructorMethod = app => {
 module.exports = {
     user: require("./user"),
     todolist: require("./todolist"),
-    onedaylist: require("./onedaylist")
+    onedaylist: require("./onedaylist"),
+    reviews: require("./reviews")
 };

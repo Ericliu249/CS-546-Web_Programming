@@ -56,6 +56,15 @@ export interface UserInfo {
     dietaryRestrictions: string
 }
 
+export interface Review {
+    _id: string;
+    name: string;
+    description: string;
+    userId: string;
+    recommendedPlaceId: string;
+    date: string;
+}
+
 export interface AjaxResponse<T> {
     success: boolean,
     errorMessage?: string,
