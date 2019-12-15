@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const todolistData = data.todolist;
+const userData = data.user;
 
 router.get("/getAll", async (req, res) => {
     try {
@@ -67,6 +68,38 @@ router.get("/", async (req, res) => {
     } catch (e) {
         res.status(403);
         res.render("people/errorDetails", {error: "Can't find todolist!"});
+    }
+});
+router.get("/getTop", async (req, res) => {
+    try {
+        // const limis = await todolistData.getByOnedaylistId(req.params.limits);
+        const getAll = await todolistData.getTopList(3);
+        res.json(getAll);
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find todolist!"});
+    }
+});
+router.get("/getTodolistByPreference/:id", async (req, res) => {
+    try {
+        var userId = req.params.id;
+        console.log(userId);
+        if (!userId) {
+            const getAll = await todolistData.getAllList();
+            res.json(getAll);
+        } else {
+            var user = await userData.getUserById(userId);
+            var preference = [];
+            for(var choice in user.interestPlaces){
+                if(choice.isChecked === true)
+                    preference.push(choice.selected);
+            }
+            const getOne = await todolistData.getTodolistByPreference(preference);
+            res.json(getOne);
+        }
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find onedaylist!"});
     }
 });
 
