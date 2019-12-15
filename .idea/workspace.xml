@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c3de194a-f678-4647-8fd8-98cbd0474fa7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/startup.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/startup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +23,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="345">
+              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -29,8 +32,8 @@
       <file leaf-file-name="dashboard.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="165" column="8" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="8" />
+            <state relative-caret-position="441">
+              <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
               <folding>
                 <element signature="e#0#79#0" expanded="true" />
               </folding>
@@ -38,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+            <state relative-caret-position="332">
+              <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -59,8 +62,8 @@
       <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="783" column="31" selection-start-line="783" selection-start-column="31" selection-end-line="845" selection-end-column="21" />
+            <state relative-caret-position="-972">
+              <caret line="783" column="32" lean-forward="true" selection-start-line="783" selection-start-column="32" selection-end-line="783" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -76,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-1.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login-1.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1031">
@@ -97,8 +100,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+            <state relative-caret-position="168">
+              <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -106,7 +109,7 @@
       <file leaf-file-name="auth.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="166">
               <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
               <folding>
                 <element signature="e#0#149#0" expanded="true" />
@@ -121,6 +124,7 @@
     <findStrings>
       <find>pack</find>
       <find>sign u</find>
+      <find>res.redirect</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,11 +136,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/app/_services/script-loader.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
-        <option value="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/data/user.js" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
+        <option value="$PROJECT_DIR$/routes/startup.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" />
+        <option value="$PROJECT_DIR$/data/user.js" />
       </list>
     </option>
   </component>
@@ -203,6 +209,30 @@
               <item name="CS-546-Web_Programming" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS-546-Web_Programming" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS-546-Web_Programming" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS-546-Web_Programming" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS-546-Web_Programming" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS-546-Web_Programming" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS-546-Web_Programming" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS-546-Web_Programming" type="b2602c69:ProjectViewProjectNode" />
@@ -332,12 +362,12 @@
       <workItem from="1576368085814" duration="55000" />
       <workItem from="1576371081669" duration="697000" />
       <workItem from="1576373228220" duration="188000" />
-      <workItem from="1576376272627" duration="3391000" />
+      <workItem from="1576376272627" duration="5547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3579000" />
+    <option name="totallyTimeSpent" value="5735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,12 +452,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/routes/user.js</url>
-          <line>94</line>
+          <line>105</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/data/user.js</url>
+          <line>67</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/data/user.js</url>
+          <line>37</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -512,16 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="165" column="8" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/collection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -536,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -550,30 +575,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/startup.js">
+    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="783" column="31" selection-start-line="783" selection-start-column="31" selection-end-line="845" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+        <state relative-caret-position="-1031">
+          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="166">
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
           <folding>
             <element signature="e#0#149#0" expanded="true" />
@@ -581,10 +592,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
+    <entry file="file://$PROJECT_DIR$/routes/startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1031">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
+        <state relative-caret-position="-972">
+          <caret line="783" column="32" lean-forward="true" selection-start-line="783" selection-start-column="32" selection-end-line="783" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="105" column="23" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
         </state>
       </provider>
     </entry>
