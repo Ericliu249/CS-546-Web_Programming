@@ -268,6 +268,12 @@ var ScriptLoaderService = /** @class */ (function () {
     ScriptLoaderService.prototype.update = function (http, user) {
         return http.post("http://localhost:3000/admin/update", user);
     };
+    ScriptLoaderService.prototype.getReviews = function (http, id) {
+        return http.get("http://localhost:3000/place/reviews/" + id);
+    };
+    ScriptLoaderService.prototype.postReviews = function (http, id, content, author, userId) {
+        return http.post("http://localhost:3000/place/reviews/", { content: content, id: id, author: author, userId: userId });
+    };
     ScriptLoaderService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
     ], ScriptLoaderService);
@@ -2171,7 +2177,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/lily/Downloads/CS-546-Web_Programming-master-3/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/lily/Downloads/CS-546-Web_Programming/src/main.ts */"./src/main.ts");
 
 
 /***/ })
