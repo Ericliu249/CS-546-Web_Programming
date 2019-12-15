@@ -68,24 +68,19 @@ module.exports = {
         if (!id)
             throw "You must provide a id for your post";
         else if (!ObjectID.isValid(id)) {
-            if (typeof id === 'string') {//id type is 'string' you'll have to convert into ObjectID 
-                const userCollection = await user();
-                const userGet = await userCollection.findOne({_id: id});
-                if (userGet === null)
-                    throw "No user with that id";
-
-                return userGet;
-
-            }
-            else {
-                id = ObjectID(id);
-                const userCollection = await user();
-                const userGet = await userCollection.findOne({_id: id});
-                if (userGet === null)
-                    throw "No user with that id";
-
-                return userGet;
-            }
+            const userCollection = await user();
+            const userGet = await userCollection.findOne({_id: id});
+            if (userGet === null)
+                throw "No user with that id";
+            return userGet;
+        }
+        else {
+            id = ObjectID(id);
+            const userCollection = await user();
+            const userGet = await userCollection.findOne({_id: id});
+            if (userGet === null)
+                throw "No user with that id";
+            return userGet;
         }
 
 
@@ -105,9 +100,9 @@ module.exports = {
             toDoList: [],
             postedReviews: [],
             postedRatings: [],
-            preferDistance:[],
-            dietaryRestrictions:[],
-            imgurl:"./assets/app/media/img/users/user2.jpg"
+            preferDistance: [],
+            dietaryRestrictions: [],
+            imgurl: "./assets/app/media/img/users/user2.jpg"
         };
         const userCollection = await user();
         const newInsertInformation = await userCollection.insertOne(newUser);
@@ -123,7 +118,7 @@ module.exports = {
         };
         const userCollection = await user();
         const newInsertInformation = await userCollection.updateOne({_id: id}, {$set: {newUser}});
-        if (newInsertInformation.modifiedCount ===  0) throw `Couldn't update successfuly!`;
+        if (newInsertInformation.modifiedCount === 0) throw `Couldn't update successfuly!`;
         return newInsertInformation;
     }
 

@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 import * as _ from 'lodash';
 import {tap} from "rxjs/operators";
 import {map} from 'rxjs/operators';
-import {Todolist} from "../../../interfaces/angular-interfaces";
+import {Todolist, UserInfo} from "../../../interfaces/angular-interfaces";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 
@@ -70,27 +70,32 @@ import {ActivatedRoute} from "@angular/router";
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=New York">
+                                                            <a class="m-nav__link"
+                                                               href="http://localhost:3000/admin/?location=New York">
                                                                 <span class="m-nav__link-text">New york</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Tokyo">
+                                                            <a class="m-nav__link"
+                                                               href="http://localhost:3000/admin/?location=Tokyo">
                                                                 <span class="m-nav__link-text">Tokyo</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Miami">
+                                                            <a class="m-nav__link"
+                                                               href="http://localhost:3000/admin/?location=Miami">
                                                                 <span class="m-nav__link-text">Miami</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Beijing">
+                                                            <a class="m-nav__link"
+                                                               href="http://localhost:3000/admin/?location=Beijing">
                                                                 <span class="m-nav__link-text">Beijing</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Toronto">
+                                                            <a class="m-nav__link"
+                                                               href="http://localhost:3000/admin/?location=Toronto">
                                                                 <span class="m-nav__link-text">Toronto</span>
                                                             </a>
                                                         </li>
@@ -117,7 +122,8 @@ import {ActivatedRoute} from "@angular/router";
                                                     <a [routerLink]="['/onedaylist',todolist._id]">{{ todolist.name
                                                         }}</a>
                                                 </h2>
-                                                <p class="blog-post-desc" style="height:231px;">{{ todolist.description }}</p>
+                                                <p class="blog-post-desc" style="height:231px;">{{ todolist.description
+                                                    }}</p>
                                                 <div class="blog-post-foot">
                                                     <div class="blog-post-meta">
                                                         <i class="flaticon-time font-blue"></i>
@@ -147,6 +153,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
     todolists$: Observable<Todolist[]>;
     safeHtml: SafeHtml;
     model: any = {};
+    user: Observable<UserInfo>;
 
     constructor(private _script: ScriptLoaderService, private toastr: ToastrService, private http: HttpClient, private sanitizer: DomSanitizer, private _router: ActivatedRoute) {
     }
@@ -160,14 +167,14 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
         }*/
 
         let id = localStorage.getItem('currentUser');
-        // this.user = this._script.getUserById(this.http, JSON.parse(id).id);
+        this.user = this._script.getUserById(this.http, JSON.parse(id).id);
         //this.todolists$ = this._script.getTodolistByPreference(this.http, JSON.parse(id).id).pipe(map(data => _.values(data)));
 
-         this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
+        this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);
             if (this.model.location == null) {
-                this.safeHtml ="All Cities";
+                this.safeHtml = "All Cities";
             }
         });
     }

@@ -29,7 +29,18 @@ router.post("/login", async (req, res) => {
         const result = await userData.checkPassword(searchData.email, searchData.password);
         if (result) {
             res.cookie("AuthCookie", result.username);
-            res.redirect("/admin/private");
+            //res.redirect("/admin/private");
+            if (!req.cookies.AuthCookie) {
+                res.status(403);
+                res.json({error: "Can't find user!"});
+            }
+            try {
+                const getDetail = await userData.getPeopleByCookie(req.cookies.AuthCookie);
+                res.json(getDetail);
+            } catch (e) {
+                res.status(403);
+                res.json({error: "Can't find user!"});
+            }
         }
         else {
             res.json({error: "Your passsword are not valid! Please check it!"});
@@ -43,7 +54,7 @@ router.post("/login", async (req, res) => {
 router.get("/private", async (req, res) => {
     if (!req.cookies.AuthCookie) {
         res.status(403);
-        res.render("people/errorDetails", {error: "Can't find user!"});
+        res.json({error: "Can't find user!"});
     }
     try {
         const getDetail = await userData.getPeopleByCookie(req.cookies.AuthCookie);
