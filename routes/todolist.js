@@ -69,5 +69,38 @@ router.get("/", async (req, res) => {
         res.render("people/errorDetails", {error: "Can't find todolist!"});
     }
 });
+router.get("/getTop", async (req, res) => {
+    try {
+        // const limis = await todolistData.getByOnedaylistId(req.params.limits);
+        const getAll = await todolistData.getTopList(3);
+        res.json(getAll);
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find todolist!"});
+    }
+});
+router.get("/getTodolistByPreference/:id", async (req, res) => {
+    try {
+        var userId = req.params.id;
+        if (!userId) {
+            const getAll = await todolistData.getAllList();
+            res.json(getAll);
+        } else {
+            var user = await userData.getUserById(userId);
+            var preference = [];
+            // console.log(user.interestPlaces);
+            for( let i = 0; i < user.interestPlaces.length; i++){
+                // console.log(user.interestPlaces[i]);
+                if(user.interestPlaces[i].isChecked === true)
+                    preference.push(user.interestPlaces[i].selected);
+            }
+            const getOne = await todolistData.getTodolistByPreference(preference);
+            res.json(getOne);
+        }
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find onedaylist!"});
+    }
+});
 
 module.exports = router;
