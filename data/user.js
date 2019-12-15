@@ -112,7 +112,7 @@ module.exports = {
             dietaryRestrictions: dietaryRestrictions
         };
         const userCollection = await user();
-        const newInsertInformation = await userCollection.updateOne({_id: id}, {$pull: {newUser}});
+        const newInsertInformation = await userCollection.updateOne({_id: id}, {$set: {newUser}});
         if (newInsertInformation.modifiedCount ===  0) throw `Couldn't update successfuly!`;
         return newInsertInformation;
     }

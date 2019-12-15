@@ -39,7 +39,8 @@
     "rxjs": "^6.3.3",
     "typescript-formatter": "^5.2.0",
     "xss": "^1.0.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "node-sass": "^4.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
