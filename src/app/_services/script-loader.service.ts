@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import * as $ from 'jquery';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {OneDaylist, Place, Todolist, UserInfo} from '../interfaces/angular-interfaces';
+import {OneDaylist, Place, Todolist, UserInfo, Review} from '../interfaces/angular-interfaces';
 
 declare let document: any;
 
@@ -123,5 +123,13 @@ export class ScriptLoaderService {
 
     update(http: HttpClient, user) {
         return http.post<UserInfo>("http://localhost:3000/admin/update", user);
+    }
+
+    getReviews(http: HttpClient, id): Observable<Review[]> {
+        return http.get<Review[]>("http://localhost:3000/place/reviews/"+ id);
+    }
+
+    postReviews(http: HttpClient, id, content, author, userId): Observable<Review[]> {
+        return http.post<Review[]>("http://localhost:3000/place/reviews/", {content, id, author, userId});
     }
 }
