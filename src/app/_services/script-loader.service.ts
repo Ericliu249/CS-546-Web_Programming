@@ -129,7 +129,7 @@ export class ScriptLoaderService {
         return http.get<Todolist[]>("http://localhost:3000/todolist/getTop/");
     }
 
-    getTodolistByPreference(http: HttpClient, user){
-        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByPreference/", user);
+    getTodolistByPreference(http: HttpClient, id){
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByPreference/"+id);
     }
 }

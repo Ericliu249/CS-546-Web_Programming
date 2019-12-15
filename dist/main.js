@@ -276,8 +276,8 @@ var ScriptLoaderService = /** @class */ (function () {
     ScriptLoaderService.prototype.getTopTodolists = function (http) {
         return http.get("http://localhost:3000/todolist/getTop/");
     };
-    ScriptLoaderService.prototype.getTodolistByPreference = function (http, user) {
-        return http.get("http://localhost:3000/todolist/getTodolistByPreference/", user);
+    ScriptLoaderService.prototype.getTodolistByPreference = function (http, id) {
+        return http.get("http://localhost:3000/todolist/getTodolistByPreference/" + id);
     };
     ScriptLoaderService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()

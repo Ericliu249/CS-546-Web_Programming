@@ -65,8 +65,8 @@ var DashboardComponent = /** @class */ (function () {
             this.model.location = "New York";
         }*/
         var id = localStorage.getItem('currentUser');
-        this.user = this._script.getUserById(this.http, JSON.parse(id).id);
-        this.todolists$ = this._script.getTodolistByPreference(this.http, this.user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (data) { return lodash__WEBPACK_IMPORTED_MODULE_4__["values"](data); }));
+        // this.user = this._script.getUserById(this.http, JSON.parse(id).id);
+        this.todolists$ = this._script.getTodolistByPreference(this.http, JSON.parse(id).id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (data) { return lodash__WEBPACK_IMPORTED_MODULE_4__["values"](data); }));
         // this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
         this.todolists$.subscribe(function (ress) {
             _this.safeHtml = _this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);

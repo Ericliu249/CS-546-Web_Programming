@@ -132,7 +132,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
     todolists$: Observable<Todolist[]>;
     safeHtml: SafeHtml;
     model: any = {};
-    user: any;
+    id: any;
 
     constructor(private _script: ScriptLoaderService, private toastr: ToastrService, private http: HttpClient, private sanitizer: DomSanitizer, private _router: ActivatedRoute) {
     }
@@ -145,8 +145,8 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
             this.model.location = "New York";
         }*/
         let id = localStorage.getItem('currentUser');
-        this.user = this._script.getUserById(this.http, JSON.parse(id).id);
-        this.todolists$ = this._script.getTodolistByPreference(this.http, this.user).pipe(map(data => _.values(data)));
+        // this.user = this._script.getUserById(this.http, JSON.parse(id).id);
+        this.todolists$ = this._script.getTodolistByPreference(this.http, JSON.parse(id).id).pipe(map(data => _.values(data)));
         // this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const todolistData = data.todolist;
-
+const userData = data.user;
 router.get("/getAll", async (req, res) => {
     try {
         const getAll = await todolistData.getAllList();
@@ -79,13 +79,15 @@ router.get("/getTop", async (req, res) => {
         res.render("people/errorDetails", {error: "Can't find todolist!"});
     }
 });
-router.get("/getTodolistByPreference/", async (req, res) => {
+router.get("/getTodolistByPreference/:id", async (req, res) => {
     try {
-        var user = req.body;
-        if (!user._id) {
+        var userId = req.params.id;
+        console.log(userId);
+        if (!userId) {
             const getAll = await todolistData.getAllList();
             res.json(getAll);
         } else {
+            var user = await userData.getUserById(userId);
             var preference = [];
             for(var choice in user.interestPlaces){
                 if(choice.isChecked === true)
