@@ -80,17 +80,17 @@ export class AuthComponent implements OnInit {
 
     signup() {
         this.loading = true;
-
         this._alertService.success(
             'Thank you. To complete your registration please check your email.',
             true);
-        this.loading = false;
         this._script.signup(this.http, this.model).subscribe(success => {
             LoginCustom.displaySignInForm();
             this.model = {};
+            this.loading = false;
         }, error => {
             LoginCustom.displaySignUpForm();
             this.model = {};
+            this.loading = false;
         });
     }
 

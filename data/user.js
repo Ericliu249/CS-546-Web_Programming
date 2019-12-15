@@ -67,21 +67,28 @@ module.exports = {
     async getUserById(id) {
         if (!id)
             throw "You must provide a id for your post";
-        /*else if (!ObjectID.isValid(id)) {
+        else if (!ObjectID.isValid(id)) {
             if (typeof id === 'string') {//id type is 'string' you'll have to convert into ObjectID 
-                id = ObjectID(id);
+                const userCollection = await user();
+                const userGet = await userCollection.findOne({_id: id});
+                if (userGet === null)
+                    throw "No user with that id";
+
+                return userGet;
+
             }
             else {
-                throw `id:${id}, Must Be STRING OR OBJECT ID`;
+                id = ObjectID(id);
+                const userCollection = await user();
+                const userGet = await userCollection.findOne({_id: id});
+                if (userGet === null)
+                    throw "No user with that id";
+
+                return userGet;
             }
         }
-*/
-        const userCollection = await user();
-        const userGet = await userCollection.findOne({_id: id});
-        if (userGet === null)
-            throw "No user with that id";
 
-        return userGet;
+
     },
 
     async addUser(firstName, lastName, email, username, hashedPassword) {
@@ -97,7 +104,10 @@ module.exports = {
             preferredFood: [],
             toDoList: [],
             postedReviews: [],
-            postedRatings: []
+            postedRatings: [],
+            preferDistance:[],
+            dietaryRestrictions:[],
+            imgurl:"./assets/app/media/img/users/user2.jpg"
         };
         const userCollection = await user();
         const newInsertInformation = await userCollection.insertOne(newUser);
