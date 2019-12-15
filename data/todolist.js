@@ -65,10 +65,11 @@ module.exports = {
         try {
             var allQuery = [];
             for(var type in preference){
+                console.log(type);
                 allQuery.push({"oneDayListId.recommendPlaceId.tag": {$regex :`${type}`}});
                 allQuery.push({"oneDayListId.recommendPlaceId.typeOfPlace": {$regex :`${type}`}});
             }
-            // console.log(allQuery);
+            console.log(allQuery);
             var searchPost = { $or:allQuery};
             const todolistCollection = await todolist();
             const todolistArray = await todolistCollection.find(searchPost).toArray();

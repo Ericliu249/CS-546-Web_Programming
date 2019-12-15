@@ -83,16 +83,17 @@ router.get("/getTop", async (req, res) => {
 router.get("/getTodolistByPreference/:id", async (req, res) => {
     try {
         var userId = req.params.id;
-        console.log(userId);
         if (!userId) {
             const getAll = await todolistData.getAllList();
             res.json(getAll);
         } else {
             var user = await userData.getUserById(userId);
             var preference = [];
-            for(var choice in user.interestPlaces){
-                if(choice.isChecked === true)
-                    preference.push(choice.selected);
+            console.log(user.interestPlaces);
+            for( let i = 0; i < user.interestPlaces.length; i++){
+                console.log(user.interestPlaces[i]);
+                if(user.interestPlaces[i].isChecked === true)
+                    preference.push(user.interestPlaces[i].selected);
             }
             const getOne = await todolistData.getTodolistByPreference(preference);
             res.json(getOne);
