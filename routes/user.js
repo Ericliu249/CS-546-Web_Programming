@@ -100,14 +100,14 @@ router.get("/getById/:id", async (req, res) => {
     }
 });
 
-router.get("/update", async (req, res) => {
+router.post("/update", async (req, res) => {
     let newUser = req.body;
     let {_id, interestPlaces, preferredFood, preferDistance, dietaryRestrictions} = newUser;
     try {
         if (!newUser._id) {
             res.json('Please login!');
         }
-        const getOne = await userData.update(newUser._id, newUser.interestPlaces, newUser.preferredFood, newUser.preferDistance, newUser.dietaryRestrictions);
+        const getOne = await userData.updateUser(newUser._id, newUser.interestPlaces, newUser.preferredFood, newUser.preferDistance, newUser.dietaryRestrictions);
         res.json(getOne);
     } catch (e) {
         res.status(403);

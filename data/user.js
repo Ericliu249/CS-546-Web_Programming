@@ -103,7 +103,7 @@ module.exports = {
         const newInsertInformation = await userCollection.insertOne(newUser);
         return newInsertInformation;
     },
-    async update(id, interestPlaces, preferredFood, preferDistance, dietaryRestrictions) {
+    async updateUser(id, interestPlaces, preferredFood, preferDistance, dietaryRestrictions) {
         //need error checking here
         let newUser = {
             interestPlaces: interestPlaces,
@@ -112,7 +112,8 @@ module.exports = {
             dietaryRestrictions: dietaryRestrictions
         };
         const userCollection = await user();
-        const newInsertInformation = await userCollection.updateOne(id, newUser);
+        const newInsertInformation = await userCollection.updateOne({_id: id}, {$set: {newUser}});
+        if (newInsertInformation.modifiedCount ===  0) throw `Couldn't update successfuly!`;
         return newInsertInformation;
     }
 

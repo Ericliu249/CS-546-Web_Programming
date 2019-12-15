@@ -6,6 +6,7 @@ import {ScriptLoaderService} from "../../_services/script-loader.service";
 import {HttpClient} from "@angular/common/http";
 import {UserInfo} from "../../interfaces/angular-interfaces";
 import {Observable} from "rxjs/index";
+import * as $ from "jquery";
 
 @Component({
     selector: 'app-logout',
@@ -23,12 +24,21 @@ export class LogoutComponent implements OnInit {
 
     ngOnInit(): void {
         Helpers.setLoading(true);
-        this._script.logout(this.http).subscribe(success=>{
+        $.ajax({
+            url: "http://localhost:3000/admin/logout",
+            type: 'GET',
+            dataType: 'json', // added data type
+            success: function(res) {
+                this._authService.logout();
+                this._router.navigate(['/login']);
+            }
+        })
+        /*this._script.logout(this.http).subscribe(success=>{
             // reset login status
             this._authService.logout();
             this._router.navigate(['/login']);
         },error=>{
 
-        });
+        });*/
     }
 }
