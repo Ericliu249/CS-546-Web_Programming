@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3de194a-f678-4647-8fd8-98cbd0474fa7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/todolist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pages-dashboard-dashboard-module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/todolist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_services/script-loader.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_services/script-loader.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/pages/dashboard/dashboard.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c3de194a-f678-4647-8fd8-98cbd0474fa7" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +79,7 @@
       <workItem from="1574888037197" duration="7294000" />
       <workItem from="1575145318892" duration="20008000" />
       <workItem from="1576352312229" duration="9211000" />
-      <workItem from="1576364150037" duration="5953000" />
+      <workItem from="1576364150037" duration="6297000" />
     </task>
     <servers />
   </component>
