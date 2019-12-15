@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from './../../../shared/shared.module';
 import {QuestionnaireComponent} from "./questionnaire.component";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import {AuthGuard} from "../../../auth/_guards/auth.guard";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
     {
@@ -19,13 +23,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [
-        SharedModule, RouterModule.forChild(routes),
-    ], exports: [
-        RouterModule,
-    ], declarations: [
-        QuestionnaireComponent,
+    declarations: [
+        QuestionnaireComponent
     ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        HttpClientModule,
+        SharedModule,
+        RouterModule.forChild(routes)
+    ],
+    providers: [
+        AuthGuard
+    ]
 })
 export class QuestionnaireModule {
 }

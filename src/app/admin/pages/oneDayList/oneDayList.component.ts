@@ -80,7 +80,7 @@ import {OneDaylist, Todolist} from "../../../interfaces/angular-interfaces";
                                              data-scrollbar-shown="true"
                                              data-scrollable="true"
                                              data-max-height="580"
-                                             style="overflow: visible; height: 1380px; max-height: 1380px; position: relative;">
+                                             style="overflow: visible; height: 1680px; max-height: 1680px; position: relative;">
                                             <div class="m-timeline-2"
                                                  *ngIf="onedaylists$ | async as onedaylists else noData;">
                                                 <div class="m-timeline-2__items  m&#45;&#45;padding-top-25 m&#45;&#45;padding-bottom-30"
@@ -99,7 +99,7 @@ import {OneDaylist, Todolist} from "../../../interfaces/angular-interfaces";
                                                                         <a [routerLink]="['/place',onedaylist._id]"><img class="m-widget7__img"
                                                                              src="{{ onedaylist.imgurl }}" alt="" [routerLink]="['/place',onedaylist._id]">
                                                                         </a></div>
-                                                                    <div class="m-widget5__content">
+                                                                    <div class="m-widget5__content" style="width: 731px;">
                                                                         <a [routerLink]="['/place',onedaylist._id]">
                                                                         <h4 class="m-widget5__title">
                                                                             {{onedaylist.name}}

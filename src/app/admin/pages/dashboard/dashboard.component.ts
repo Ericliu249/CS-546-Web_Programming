@@ -79,6 +79,21 @@ import {ActivatedRoute} from "@angular/router";
                                                                 <span class="m-nav__link-text">Tokyo</span>
                                                             </a>
                                                         </li>
+                                                        <li class="m-nav__item">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Miami">
+                                                                <span class="m-nav__link-text">Miami</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Beijing">
+                                                                <span class="m-nav__link-text">Beijing</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a class="m-nav__link" href="http://localhost:3000/admin/?location=Toronto">
+                                                                <span class="m-nav__link-text">Toronto</span>
+                                                            </a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -102,7 +117,7 @@ import {ActivatedRoute} from "@angular/router";
                                                     <a [routerLink]="['/onedaylist',todolist._id]">{{ todolist.name
                                                         }}</a>
                                                 </h2>
-                                                <p class="blog-post-desc">{{ todolist.description }}</p>
+                                                <p class="blog-post-desc" style="height:231px;">{{ todolist.description }}</p>
                                                 <div class="blog-post-foot">
                                                     <div class="blog-post-meta">
                                                         <i class="flaticon-time font-blue"></i>
@@ -146,6 +161,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterContentIn
         this.todolists$ = this._script.getTodolists(this.http, this.model.location).pipe(map(data => _.values(data)));
         this.todolists$.subscribe(ress => {
             this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(ress[0]['oneDayListId'][0]['location']);
+            if (this.model.location == null) {
+                this.safeHtml ="All Cities";
+            }
         });
     }
 

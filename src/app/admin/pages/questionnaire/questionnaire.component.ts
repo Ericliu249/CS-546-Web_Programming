@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 import {noop} from "rxjs/internal-compatibility";
 
 @Component({
-    selector: 'app-place',
+    selector: 'app-update',
     templateUrl: './questionnaire.component.html',
     encapsulation: ViewEncapsulation.None
 })
@@ -25,15 +25,19 @@ export class QuestionnaireComponent implements OnInit, AfterViewInit, AfterConte
     preferDistance: {};
     dietaryRestrictions: {};
     model: any = {};
+    loading = false;
+    returnUrl: string;
 
     constructor(private _script: ScriptLoaderService,
                 private toastr: ToastrService,
                 private http: HttpClient,
-                private _router: ActivatedRoute,
-                private sanitizer: DomSanitizer) {
+                private sanitizer: DomSanitizer,
+                private _router: Router,
+                private _route: ActivatedRoute,) {
     }
 
     ngOnInit() {
+        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/profile';
         let id = localStorage.getItem('currentUser');
         this.user = this._script.getUserById(this.http, JSON.parse(id).id);
         this.user.subscribe(success => {
@@ -41,26 +45,6 @@ export class QuestionnaireComponent implements OnInit, AfterViewInit, AfterConte
             this.preferDistance = success.preferDistance;
             this.dietaryRestrictions = success.dietaryRestrictions;
             this.interestPlaces = success.interestPlaces;
-        });
-        $('#updateF').submit((e) => {
-            console.log("submit");
-            let form = $(e.target).closest('form');
-            form.validate({
-                rules: {
-                    /*email: {
-                        required: true,
-                        email: true,
-                    },
-                    password: {
-                        required: true,
-                    },*/
-                },
-            });
-            if (!form.valid()) {
-                e.preventDefault();
-                return;
-            }
-            this.update();
         });
     }
 
@@ -71,12 +55,127 @@ export class QuestionnaireComponent implements OnInit, AfterViewInit, AfterConte
     ngAfterContentInit() {
     }
 
-    update() {
-        console.log(this.model);
+    updateMyProfile() {
+        let ip = [{
+            value: 1, name: 'interestPlaces', isChecked: true, selected: "Cities"
+        },
+            {
+                value: 2, name: 'interestPlaces', isChecked: false, selected: "Nature"
+            },
+            {
+                value: 3, name: 'interestPlaces', isChecked: false, selected: "Mountain/Hills"
+            },
+            {
+                value: 4, name: 'interestPlaces', isChecked: true, selected: "Beaches"
+            },
+            {
+                value: 5, name: 'interestPlaces', isChecked: true, selected: "Historic"
+            }];
+
+        for (var i = 0; i < ip.length; i++) {
+            var obj = ip[i];
+            for (var key in obj) {
+                if (key == 'value') {
+                    var value = obj[key];
+                    $('[name=interestPlaces]:checked').each(function (index) {
+                        if (value == $(this).val()) {
+                            obj['isChecked'] = true;
+                        }
+                    });
+                }
+            }
+        }
+        let dr = [{
+            value: 1, name: 'dietaryRestrictions', isChecked: false, selected: "Vegetarian"
+        },
+            {
+                value: 2, name: 'dietaryRestrictions', isChecked: true, selected: "Gluten free"
+            },
+            {
+                value: 3, name: 'dietaryRestrictions', isChecked: false, selected: "Seafood allergy"
+            }];
+
+        for (var i = 0; i < dr.length; i++) {
+            var obj = dr[i];
+            for (var key in obj) {
+                if (key == 'value') {
+                    var value = obj[key];
+                    $('[name=dietaryRestrictions]:checked').each(function (index) {
+                        if (value == $(this).val()) {
+                            obj['isChecked'] = true;
+                        }
+                    });
+                }
+            }
+        }
+        let pf = [{
+            value: 1, name: 'preferredFood', isChecked: false, selected: "Spanish/Hispanic"
+        },
+            {
+                value: 2, name: 'preferredFood', isChecked: false, selected: "Asian"
+            },
+            {
+                value: 3, name: 'preferredFood', isChecked: false, selected: "American"
+            },
+            {
+                value: 4, name: 'preferredFood', isChecked: false, selected: "Middle Eastern"
+            },
+            {
+                value: 5, name: 'preferredFood', isChecked: false, selected: "European"
+            }];
+
+        for (var i = 0; i < pf.length; i++) {
+            var obj = pf[i];
+            for (var key in obj) {
+                if (key == 'value') {
+                    var value = obj[key];
+                    $('[name=preferredFood]:checked').each(function (index) {
+                        if (value == $(this).val()) {
+                            obj['isChecked'] = true;
+                        }
+                    });
+                }
+            }
+        }
+        let pd = [{
+            value: 1, name: 'preferDistance', isChecked: false, selected: "<5 miles"
+        },
+            {
+                value: 2, name: 'preferDistance', isChecked: false, selected: "5 miles - 10 miles"
+            },
+            {
+                value: 3, name: 'preferDistance', isChecked: false, selected: "10 miles - 20 miles"
+            },
+            {
+                value: 4, name: 'preferDistance', isChecked: false, selected: ">20 miles"
+            }];
+
+        for (var i = 0; i < pd.length; i++) {
+            var obj = pd[i];
+            for (var key in obj) {
+                if (key == 'value') {
+                    var value = obj[key];
+                    $('[name=preferDistance]:checked').each(function (index) {
+                        if (value == $(this).val()) {
+                            obj['isChecked'] = true;
+                        }
+                    });
+                }
+            }
+        }
+        let id = localStorage.getItem('currentUser');
+        this.model._id = JSON.parse(id).id;
+        this.model.preferredFood = pf;
+        this.model.preferDistance = pd;
+        this.model.dietaryRestrictions = dr;
+        this.model.interestPlaces = ip;
+        this.loading = true;
         this._script.update(this.http, this.model).subscribe(success => {
-            console.log(success);
+            this._router.navigate([this.returnUrl]);
+            this.loading = false;
         }, error => {
             console.log(error);
+            this.loading = false;
         });
     }
 }
