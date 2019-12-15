@@ -132,4 +132,11 @@ export class ScriptLoaderService {
     postReviews(http: HttpClient, id, content, author, userId): Observable<Review[]> {
         return http.post<Review[]>("http://localhost:3000/place/reviews/", {content, id, author, userId});
     }
+    getTopTodolists(http: HttpClient): Observable<Todolist[]>{
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTop/");
+    }
+
+    getTodolistByPreference(http: HttpClient, id){
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByPreference/"+id);
+    }
 }
