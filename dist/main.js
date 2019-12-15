@@ -1272,13 +1272,14 @@ var AuthComponent = /** @class */ (function () {
         var _this = this;
         this.loading = true;
         this._alertService.success('Thank you. To complete your registration please check your email.', true);
-        this.loading = false;
         this._script.signup(this.http, this.model).subscribe(function (success) {
             _helpers_login_custom__WEBPACK_IMPORTED_MODULE_7__["LoginCustom"].displaySignInForm();
             _this.model = {};
+            _this.loading = false;
         }, function (error) {
             _helpers_login_custom__WEBPACK_IMPORTED_MODULE_7__["LoginCustom"].displaySignUpForm();
             _this.model = {};
+            _this.loading = false;
         });
     };
     AuthComponent.prototype.forgotPass = function () {
