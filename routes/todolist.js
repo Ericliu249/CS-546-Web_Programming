@@ -79,5 +79,25 @@ router.get("/getTop", async (req, res) => {
         res.render("people/errorDetails", {error: "Can't find todolist!"});
     }
 });
+router.get("/getTodolistByPreference/", async (req, res) => {
+    try {
+        var user = req.body;
+        if (!user._id) {
+            const getAll = await todolistData.getAllList();
+            res.json(getAll);
+        } else {
+            var preference = [];
+            for(var choice in user.interestPlaces){
+                if(choice.isChecked === true)
+                    preference.push(choice.selected);
+            }
+            const getOne = await todolistData.getTodolistByPreference(preference);
+            res.json(getOne);
+        }
+    } catch (e) {
+        res.status(403);
+        res.render("people/errorDetails", {error: "Can't find onedaylist!"});
+    }
+});
 
 module.exports = router;

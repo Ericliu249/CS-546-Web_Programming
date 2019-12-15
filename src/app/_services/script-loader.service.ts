@@ -128,4 +128,8 @@ export class ScriptLoaderService {
     getTopTodolists(http: HttpClient): Observable<Todolist[]>{
         return http.get<Todolist[]>("http://localhost:3000/todolist/getTop/");
     }
+
+    getTodolistByPreference(http: HttpClient, user){
+        return http.get<Todolist[]>("http://localhost:3000/todolist/getTodolistByPreference/", user);
+    }
 }

@@ -61,5 +61,21 @@ module.exports = {
             throw e;
         }
     },
+    async getTodolistByPreference(preference){
+        try {
+            var allQuery = [];
+            for(var type in preference){
+                allQuery.push({"oneDayListId.recommendPlaceId.tag": {$regex :`${type}`}});
+                allQuery.push({"oneDayListId.recommendPlaceId.typeOfPlace": {$regex :`${type}`}});
+            }
+            var searchPost = { $or:allQuery};
+            const todolistCollection = await todolist();
+            const todolistArray = await todolistCollection.find(searchPost).toArray();
+            if (todolistArray === null) throw `No todolistArray`;
+            return todolistArray;
+        } catch (e) {
+            throw e;
+        }
+    },
 };
 
