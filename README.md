@@ -23,4 +23,3 @@ clone and install Node.js from https://nodejs.org/en/download/
 6) Run Application 
    ng serve or npm start
 
-
