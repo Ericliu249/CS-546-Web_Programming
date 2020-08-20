@@ -23,7 +23,7 @@
     "@angular/router": "^7.0.1",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@types/jquery": "^3.2.6",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "classlist.js": "^1.1.20150312",
     "cookie-parser": "^1.4.4",
     "core-js": "^2.4.1",
